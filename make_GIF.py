@@ -21,7 +21,7 @@ def make_GIF(GIF_dir ,images_dir):
                 frames.append(Image.open(images_dir+"/"+i))
         GIF = frames[0]
         GIF.save(f"{GIF_dir}/{n}th.gif", format = "GIF", append_images = frames,
-        save_all = True, duration = 200, loop = 0)
+        save_all = True, duration = 200, loop = 0, dpi=(300, 300))
 
 
 
