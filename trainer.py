@@ -261,8 +261,8 @@ def trainer(params):
         # That is there are 4 iterations and last one has different size.
         # Thus weighted sum is correct. But that error will be very slight.
         '''  *************This is for batch***************
-        loss_history_batch['Generator_loss'].append(loss_Discriminator_batch_sum/iter_nums) 
-        loss_history_batch["Discriminator_loss"].append(loss_Generator_batch_sum/iter_nums)
+        loss_history_batch['Generator_loss'].append(loss_Generator_batch_sum/iter_nums) 
+        loss_history_batch["Discriminator_loss"].append(loss_Discriminator_batch_sum/iter_nums)
         prob_history_batch['D_real'].append(D_real_batch_sum/iter_nums)
         prob_history_batch['D_G_fake1'].append(D_G_fake_1_batch_sum/iter_nums)
         prob_history_batch['D_G_fake2'].append(D_G_fake_2_batch_sum/iter_nums)
