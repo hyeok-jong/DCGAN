@@ -1,12 +1,10 @@
-from locale import normalize
 import time 
 from tqdm import tqdm
 import torch
-import copy
 import torch.optim as optim
 import torch.nn as nn
 from init_weight import initialize_weights
-
+import copy
 
 def get_lr(opt):         
     for param_group in opt.param_groups:
@@ -287,8 +285,6 @@ def trainer(params):
         torch.save(optimizer_D.state_dict(), result_dir + "/" + str(epoch) + "_epoch_Discriminator_opt.pt")
         torch.save(Generator.state_dict(), result_dir + "/" + str(epoch) + "_epoch_Generator_params.pt")
         torch.save(optimizer_G.state_dict(), result_dir + "/" + str(epoch) + "_epoch_Generator_opt.pt")
-
-
 
 
 
