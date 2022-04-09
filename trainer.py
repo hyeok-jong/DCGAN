@@ -219,8 +219,8 @@ def trainer(params):
             # Print losses ans probs
             if iteration_total % 100 == 0:
                 print(f"\n[{epoch}/{num_epochs}][{iteration}/{iter_nums}] \nD Loss : {loss_Discriminator : .4f} \nG_Loss : {loss_Generator : .4f} \nD(real) : {D_real : .4f} \nD(G(fake))_1 : {D_G_fake_1 : .4f} \nD(G(fake))_2 : {D_G_fake_2 : .4f}")
-                loss_history['Generator_loss'].append(loss_Discriminator.item())
-                loss_history["Discriminator_loss"].append(loss_Generator.item())
+                loss_history['Generator_loss'].append(loss_Generator.item())
+                loss_history["Discriminator_loss"].append(loss_Discriminator.item())
                 prob_history['D_real'].append(D_real)
                 prob_history['D_G_fake1'].append(D_G_fake_1)
                 prob_history['D_G_fake2'].append(D_G_fake_2)
