@@ -1,6 +1,7 @@
 from PIL import Image
 import os
 import argparse
+from tqdm import tqdm
 
 
 def args():
@@ -9,19 +10,17 @@ def args():
     parser.add_argument("--GIF_dir", type = str, help = "GIF directory to saved")
     return parser.parse_args()
 
-def make_GIF(GIF_dir ,images_dir, resize = (500,500)):
+def make_GIF(GIF_dir ,images_dir):
     list_ = os.listdir(images_dir)
 
-    for n in range(16):
+    for n in tqdm(range(16)):
         frames = []
 
         for i in list_:
 
-            if (i[0] == str(n)) or(i[0:2] == str(n)):
-                if resize:
-                    frames.append(Image.open(images_dir+"/"+i).resize(resize))
-                else:
-                    frames.append(Image.open(images_dir+"/"+i))
+            if (i[0:2] == (str(n) + "_" )) or (i[0:2] == str(n)):
+                frames.append(Image.open(images_dir+"/"+i))
+
         GIF = frames[0]
         GIF.save(f"{GIF_dir}/{n}th.gif", format = "GIF", append_images = frames,
         save_all = True, duration = 100, loop = 0, dpi=(500, 500))
