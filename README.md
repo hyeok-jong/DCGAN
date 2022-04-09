@@ -28,12 +28,12 @@ For 160 × 160, output tensor of Discriminator is [100 × 7 × 7].
 
 ## 2.2 160 size with same model
 For this, one should change codes in `dataloader.py`, `trainer.py`.  That' all.  
-I added annotations for those file with emoji 🤓.
+I added annotations for those files with emoji 🤓.
 
 
 ## 2.3  160 size and add more convs and transconvs.  
 For this one need to change codes in `dataloader.py`, `trainer.py`, `Generator.py`, `Discriminator.py`.  
-I added annotations for those file with emoji 🦢.  
+I added annotations for those files with emoji 🦢.  
 
 
 
