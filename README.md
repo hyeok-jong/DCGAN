@@ -26,7 +26,8 @@ For 160 × 160, output tensor of Discriminator is [100 × 7 × 7].
 ## 2.1 64 size
 `python train.py --face_dir /home/mskang/hyeokjong/GAN/face/images/img_align_celeba --num_epochs 50 --lr 0.0002 --batch_size 512 --result_dir /home/mskang/hyeokjong/GAN/result --device cuda:1`
 
-## 2.2 160 size with same model
+## 2.2 160 size with same model  
+`python train.py --face_dir /home/mskang/hyeokjong/GAN/face/images/img_align_celeba --num_epochs 30 --lr 0.0002 --batch_size 256 --result_dir /home/mskang/hyeokjong/GAN/result --device cuda:1`  
 For this, one should change codes in `dataloader.py`, `trainer.py`.  That' all.  
 I added annotations for those files with emoji 🤓.
 
