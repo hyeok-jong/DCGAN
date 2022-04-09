@@ -8,6 +8,9 @@ class Generator(nn.Module):
         self.tc2 = self.make_trans_conv(64*8, 64*4, 4, 2, 1)
         self.tc3 = self.make_trans_conv(64*4, 64*2, 4, 2, 1)
         self.tc4 = self.make_trans_conv(64*2, 64*1, 4, 2, 1)
+        '''🦢🦢🦢🦢🦢
+        self.tc4_1 = self.make_trans_conv(64*1, 64*1, 4, 2, 1)
+        🦢🦢🦢🦢🦢'''
         self.tc5 = self.make_trans_conv(64*1, 3, 4, 2, 1, True)
 
     def make_trans_conv(self, in_c, out_c, k, s, p, last = False):
@@ -39,6 +42,9 @@ class Generator(nn.Module):
         x = self.tc2(x)
         x = self.tc3(x)
         x = self.tc4(x)
+        '''🦢🦢🦢🦢🦢
+        x = self.tc4_1(x)
+        🦢🦢🦢🦢🦢'''
         x = self.tc5(x)
 
         return x
