@@ -34,4 +34,5 @@ if  __name__ == "__main__":
     for m, image in enumerate(fake_image_generated):
         image = cv2.cvtColor(np.array(np.transpose(image, (1,2,0))), cv2.COLOR_BGR2RGB )
         image = (image>0)*image
+        image = cv2.resize(image, dsize=(500, 500), interpolation = cv2.INTER_LINEAR)
         plt.imsave(f"{dir}/_{m}_after.png", image, dpi=300)
