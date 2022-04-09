@@ -33,7 +33,7 @@ I added annotations for those files with emoji 🤓.
 
 
 ## 2.3  128 size and add more convs and transconvs.  
-For this one need to change codes in `dataloader.py`, `trainer.py`, `generator.py`, `discriminator.py`.  
+For this one need to change codes in `dataloader.py`, `generator.py`, `discriminator.py`.  
 I added annotations for those files with emoji 🦢.  
 
 
