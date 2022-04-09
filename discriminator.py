@@ -5,6 +5,9 @@ class Discriminator(nn.Module):
         super().__init__()
 
         self.c1 = self.make_conv(3, 64*1, 4, 2, 1, first = True)
+        '''🦢🦢🦢🦢🦢
+        self.c2_1 = self.make_conv(64*1, 64*1, 4, 2, 1)
+        🦢🦢🦢🦢🦢'''
         self.c2 = self.make_conv(64*1, 64*2, 4, 2, 1)
         self.c3 = self.make_conv(64*2, 64*4, 4, 2, 1)
         self.c4 = self.make_conv(64*4, 64*8, 4, 2, 1)
@@ -39,6 +42,9 @@ class Discriminator(nn.Module):
     def forward(self,x):
         
         x = self.c1(x)
+        '''🦢🦢🦢🦢🦢
+        x = self.c2_1(x)
+        🦢🦢🦢🦢🦢'''
         x = self.c2(x)
         x = self.c3(x)
         x = self.c4(x)
