@@ -84,6 +84,9 @@ def trainer(params):
 
     # Fix noise to check generated image by same noise
     noise_fixed = torch.randn(16, 100, 1, 1, device = device)
+    ''' 🤓🤓🤓🤓🤓🤓🤓🤓🤓🤓🤓🤓🤓🤓🤓🤓
+    noise_fixed = torch.randn(16, 100, 7, 7, device = device)
+    🤓🤓🤓🤓🤓🤓🤓🤓🤓🤓🤓🤓🤓🤓🤓🤓 '''
 
     # GAN doesn't need Valid
     # And Here, I coded loss to be saved every single epoch
@@ -134,9 +137,16 @@ def trainer(params):
             # Makes target data
             # One can think that it' oaky making target coded at first (means before for)
             # Warning!!!! For last batch training batch_size changed!!!!!!!!!
+            
+            
+            
             real_target = torch.full(size = (batch_size,), fill_value = 1.0, dtype = torch.float, device = device )
             fake_target = torch.full(size = (batch_size,), fill_value = 0.0, dtype = torch.float, device = device )
             
+            ''' 🤓🤓🤓🤓🤓🤓🤓🤓🤓🤓🤓🤓🤓🤓🤓🤓
+            real_target = torch.full(size = (batch_size*7*7,), fill_value = 1.0, dtype = torch.float, device = device )
+            fake_target = torch.full(size = (batch_size*7*7,), fill_value = 0.0, dtype = torch.float, device = device )
+            🤓🤓🤓🤓🤓🤓🤓🤓🤓🤓🤓🤓🤓🤓🤓🤓 ''' 
 
             #---------     Train Discriminator    -------------------------------------------------------------------
             # zero grad /// opt.zero_grad() ???? ------>  https://discuss.pytorch.org/t/model-zero-grad-or-optimizer-zero-grad/28426
@@ -152,6 +162,11 @@ def trainer(params):
             # D( G(latent_vector)=fake_image )
             # Using .detach(), gradinets for Generator will be never calculated
             noise = torch.randn(batch_size, 100, 1, 1, device = device)
+            
+            ''' 🤓🤓🤓🤓🤓🤓🤓🤓🤓🤓🤓🤓🤓🤓🤓🤓
+            noise = torch.randn(batch_size, 100, 7, 7, device = device)
+            🤓🤓🤓🤓🤓🤓🤓🤓🤓🤓🤓🤓🤓🤓🤓🤓 ''' 
+            
             fake_image = Generator(noise)                    # Generated image
             fake_batch = Discriminator(fake_image.detach())    # [batch, 1, 1, 1]  
             D_G_fake_1 = fake_batch.mean().item()            # Means probabilty for Discriminator when fake image came.

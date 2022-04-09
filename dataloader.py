@@ -98,6 +98,15 @@ def make_dataloader(train_dir, batch_size, transform = [Centercrop((160,160)), R
     return train_dl
 
 
+''' 🤓🤓🤓🤓🤓🤓🤓🤓🤓🤓🤓🤓🤓🤓🤓🤓
+def make_dataloader(train_dir, batch_size, transform = [Centercrop((160,160)), RandomFlip()]):    # For many transformation, type should be list
+
+    train_dataset = custom_dataset(train_dir, transform)
+    train_dl = DataLoader(train_dataset, batch_size, shuffle = True, num_workers = 4, pin_memory = True)
+🤓🤓🤓🤓🤓🤓🤓🤓🤓🤓🤓🤓🤓🤓🤓🤓 ''' 
+
+
+    return train_dl
 
 # Image dataset size distribution
 
