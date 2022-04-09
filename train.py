@@ -7,6 +7,7 @@ import argparse
 import matplotlib.pyplot as plt
 import cv2
 import numpy as np
+import torch
 
 def args():
     parser = argparse.ArgumentParser()
@@ -48,6 +49,9 @@ if __name__ == "__main__":
 
     # Train 😆
     Generator, loss_history, prob_history, fake_image_list = trainer(params)
+
+    # Save Parameters of Generator
+    torch.save(Generator.state_dict(), result_dir+'/trained_generators.pt')
 
 
     # Plot after training
