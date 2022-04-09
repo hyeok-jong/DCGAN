@@ -32,8 +32,8 @@ For this, one should change codes in `dataloader.py`, `trainer.py`.  That' all.
 I added annotations for those files with emoji 🤓.
 
 
-## 2.3  160 size and add more convs and transconvs.  
-For this one need to change codes in  `trainer.py`, `generator.py`, `discriminator.py`.  
+## 2.3  128 size and add more convs and transconvs.  
+For this one need to change codes in `dataloader.py`, `trainer.py`, `generator.py`, `discriminator.py`.  
 I added annotations for those files with emoji 🦢.  
 
 
@@ -56,5 +56,5 @@ Check how my images generated.
 
 ## 3.2 160 size with same model  
 
-## 3.3 160 size and add more convs and transconvs.  
+## 3.3 128 size and add more convs and transconvs.  
 
