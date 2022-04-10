@@ -17,6 +17,7 @@ def args():
     parser.add_argument("--batch_size", type = int, help = "batch size")
     parser.add_argument("--result_dir", type = str, help = "image directory")
     parser.add_argument("--device", type = str, help = "cuda:0")
+    parser.add_argument("--resolution", type = str, default = "base", help = "low or mid or high") # It make model trained with 128 size.
     return parser.parse_args()
 
 if __name__ == "__main__":
@@ -29,13 +30,14 @@ if __name__ == "__main__":
     batch_size = args.batch_size
     result_dir = args.result_dir
     device = args.device
+    resolution = args.resolution
 
     # DataLoader
-    train_dl = make_dataloader(face_dir, batch_size = batch_size) 
+    train_dl = make_dataloader(face_dir, batch_size = batch_size, resolution = resolution) 
 
     # Generator and Discriminator
-    generator = Generator()
-    discriminator = Discriminator()
+    generator = Generator(resolution)
+    discriminator = Discriminator(resolution)
 
     # Set params for trainer
     params = { "Generator" : generator,
