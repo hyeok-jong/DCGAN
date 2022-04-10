@@ -90,21 +90,21 @@ class Centercrop():
 
 # It's GAN therefore test dataset is not needed.
 
-def make_dataloader(train_dir, batch_size, transform = [Centercrop((160,160)), Resize((64,64)), RandomFlip()]):    # For many transformation, type should be list
+def make_dataloader(train_dir, batch_size, resolution = 'base'):    # For many transformation, type should be list
+
+    if resolution == "base":
+        transform = [Centercrop((160,160)), Resize((64,64)), RandomFlip()]
+
+    # For training with 128 size.
+    else: # For resolution == low or mid or high                   
+        transform = [Centercrop((160,160)), Resize((128,128)), RandomFlip()]
 
     train_dataset = custom_dataset(train_dir, transform)
     train_dl = DataLoader(train_dataset, batch_size, shuffle = True, num_workers = 4, pin_memory = True)
 
     return train_dl
 
-'''🦢🦢🦢🦢🦢
-def make_dataloader(train_dir, batch_size, transform = [Centercrop((160,160)), Resize((128,128)), RandomFlip()]):    # For many transformation, type should be list
 
-    train_dataset = custom_dataset(train_dir, transform)
-    train_dl = DataLoader(train_dataset, batch_size, shuffle = True, num_workers = 4, pin_memory = True)
-
-    return train_dl
-🦢🦢🦢🦢🦢'''
 
 ''' 🤓🤓🤓🤓🤓🤓🤓🤓🤓🤓🤓🤓🤓🤓🤓🤓
 def make_dataloader(train_dir, batch_size, transform = [Centercrop((160,160)), RandomFlip()]):    # For many transformation, type should be list
