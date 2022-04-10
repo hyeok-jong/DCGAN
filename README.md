@@ -27,8 +27,9 @@ For 160 × 160, output tensor of Discriminator is [100 × 7 × 7].
 `python train.py --face_dir /home/mskang/hyeokjong/GAN/face/images/img_align_celeba --num_epochs 50 --lr 0.0002 --batch_size 512 --result_dir /home/mskang/hyeokjong/GAN/result --device cuda:1`
 
 ## 2.2 128 size and add more convs and transconvs.  
-For this one need to change codes in `dataloader.py`, `generator.py`, `discriminator.py`.  
-I added annotations for those files with emoji 🦢. 
+For this one can see how the codes changes in `dataloader.py`, `generator.py`, `discriminator.py`.  
+I added `resolution` option 
+
 
 ### 2.2.1  Add conv light  
 
