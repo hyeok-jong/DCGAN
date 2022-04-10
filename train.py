@@ -82,7 +82,15 @@ if __name__ == "__main__":
             image = cv2.cvtColor(np.array(np.transpose(image, (1,2,0))), cv2.COLOR_BGR2RGB )
             image = (image>0)*image
             image = cv2.resize(image, dsize=(500, 500), interpolation = cv2.INTER_LINEAR)
-            plt.imsave(f"/home/mskang/hyeokjong/GAN/result/images/{m}_{n}_.png", image, dpi=300)
+            plt.imsave(f"{result_dir}/images/{m}_{n}_.png", image, dpi=300)
+
+    for n, iters in enumerate(fake_image_list):
+        for m, image in enumerate(iters):   # 16 images
+            image = cv2.cvtColor(np.array(np.transpose(image, (1,2,0))), cv2.COLOR_BGR2RGB )
+            image = (image>0)*image
+            image = cv2.resize(image, interpolation = cv2.INTER_LINEAR)
+            plt.imsave(f"{result_dir}/images/raw_{m}_{n}_.png", image, dpi=300)   
+
     print("Let's make GIF 😎")
     print("Doing so u can get fantastic sequence of images u made")
 
