@@ -1,13 +1,20 @@
 import torch.nn as nn
 
 class Discriminator(nn.Module):
-    def __init__(self):
+    def __init__(self, resolution):
         super().__init__()
 
+        self.resolution = resolution
+        if resolution == "low":
+            self.c1_1 = self.make_conv(64*1, 64*1, 4, 2, 1)
+        elif resolution == "mid":
+            self.c2_1 = self.make_conv(64*2, 64*2, 4, 2, 1)
+        elif resolution == "high":
+            self.c3_1 = self.make_conv(64*4, 64*4, 4, 2, 1)
+        elif resolution == "highest":
+            self.c4_1 = self.make_conv(64*8, 64*8, 4, 2, 1)
+
         self.c1 = self.make_conv(3, 64*1, 4, 2, 1, first = True)
-        '''🦢🦢🦢🦢🦢
-        self.c2_1 = self.make_conv(64*1, 64*1, 4, 2, 1)
-        🦢🦢🦢🦢🦢'''
         self.c2 = self.make_conv(64*1, 64*2, 4, 2, 1)
         self.c3 = self.make_conv(64*2, 64*4, 4, 2, 1)
         self.c4 = self.make_conv(64*4, 64*8, 4, 2, 1)
@@ -42,12 +49,17 @@ class Discriminator(nn.Module):
     def forward(self,x):
         
         x = self.c1(x)
-        '''🦢🦢🦢🦢🦢
-        x = self.c2_1(x)
-        🦢🦢🦢🦢🦢'''
+        if self.resolution == "low":
+            x = self.c1_1(x)
         x = self.c2(x)
+        if self.resolution == "mid":
+            x = self.c2_1(x)
         x = self.c3(x)
+        if self.resolution == "high":
+            x = self.c3_1(x)
         x = self.c4(x)
+        if self.resolution == "highest":
+            x = self.c4_1(x)
         x = self.c5(x)
 
         return x
@@ -55,9 +67,8 @@ class Discriminator(nn.Module):
 
 if __name__ == "__main__":
 
-    import torch
     from torchinfo import summary
 
     discriminator = Discriminator()
 
-    print(summary(discriminator, (100,3,64,64)))
+    print(summary(discriminator, (100,3,64,64), "base"))
