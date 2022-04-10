@@ -31,11 +31,11 @@ For this one can see how the codes changes in `dataloader.py`, `generator.py`, `
 I added `resolution` option 
 
 
-### 2.2.1  Add conv light  
+### 2.2.1  Add conv low - level
 
-### 2.2.2 Add conv and transconv mediate
+### 2.2.2 Add conv and transconv mediate - level
 
-### 2.2.3 Add conv and transconv high
+### 2.2.3 Add conv and transconv high - level
 
 
 ## 2.3 160 size with same model  
