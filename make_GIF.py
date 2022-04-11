@@ -13,17 +13,26 @@ def args():
 def make_GIF(GIF_dir ,images_dir):
     list_ = os.listdir(images_dir)
 
+    # for resized images
     for n in tqdm(range(16)):
         frames = []
-
         for i in list_:
-
             if (i[0:2] == (str(n) + "_" )) or (i[0:2] == str(n)):
                 frames.append(Image.open(images_dir+"/"+i))
-
         GIF = frames[0]
         GIF.save(f"{GIF_dir}/{n}th.gif", format = "GIF", append_images = frames,
         save_all = True, duration = 100, loop = 0, dpi=(500, 500))
+
+    # for raw images
+    for n in tqdm(range(16)):
+        frames = []
+        for i in list_:
+            if ( ((i[4:6] == (str(n) + "_" )) or (i[4:6] == str(n))) and i[0:3]=="raw"):
+                frames.append(Image.open(images_dir+"/"+i))
+        GIF = frames[0]
+        GIF.save(f"{GIF_dir}/raw_{n}th.gif", format = "GIF", append_images = frames,
+        save_all = True, duration = 100, loop = 0, dpi=(500, 500))
+
 
 
 
