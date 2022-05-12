@@ -2,7 +2,7 @@
 [paper](https://arxiv.org/pdf/1511.06434.pdf)
 Pytorch implementation.
 
-[Results](https://velog.io/@jj770206/series/DCGAN-results)
+# [Results](https://velog.io/@jj770206/series/DCGAN-results)
 
 # 1. Dataset  
 I downloaded dataset from [kaggle](https://www.kaggle.com/datasets/jessicali9530/celeba-dataset)  
