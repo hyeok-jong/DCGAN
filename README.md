@@ -65,25 +65,3 @@ And Using `GIF` one can get sequence of images generated as `.GIF` format.
 
 Check how my images generated.  
 
-## 3.1 64 size  
-This is implement on paper.  
-
-## 3.2 160 size with same model.  
-To get higher resolution images, I added conv and transconv.  
-And location where conv and transconv added has for opptions each.  
-Thus there are total 16 combinations.  
-To prevent symmetry between generator and discriminator, I did for 4 options.  
-Plus, in order to simulate the experiment on paper as much as possible, for first and last layer, I left as it is.  
-I am attaching a picture to make it easier to understand.   
- 
-### 3.2.1  Add conv low - level
-
-### 3.2.2 Add conv and transconv mediate - level
-
-### 3.2.3 Add conv and transconv high - level
-
-### 3.2.4 Add conv and transconv highest - level
- 
- 
-## 3.3 128 size and add more convs and transconvs.  
-
